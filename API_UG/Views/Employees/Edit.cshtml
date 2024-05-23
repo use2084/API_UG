@@ -1,0 +1,79 @@
+﻿@model API_UG.Models.Employee
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Employee</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="EmployeeId" />
+            <div class="form-group">
+                <label asp-for="EmployeeFirstName" class="control-label"></label>
+                <input asp-for="EmployeeFirstName" class="form-control" />
+                <span asp-validation-for="EmployeeFirstName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EmployeeName" class="control-label"></label>
+                <input asp-for="EmployeeName" class="form-control" />
+                <span asp-validation-for="EmployeeName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EmployeePatronymic" class="control-label"></label>
+                <input asp-for="EmployeePatronymic" class="form-control" />
+                <span asp-validation-for="EmployeePatronymic" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EmployeeBirthday" class="control-label"></label>
+                <input asp-for="EmployeeBirthday" class="form-control" />
+                <span asp-validation-for="EmployeeBirthday" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EmployeePassport" class="control-label"></label>
+                <input asp-for="EmployeePassport" class="form-control" />
+                <span asp-validation-for="EmployeePassport" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EmployeePhone" class="control-label"></label>
+                <input asp-for="EmployeePhone" class="form-control" />
+                <span asp-validation-for="EmployeePhone" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EmployeePost" class="control-label"></label>
+                <select asp-for="EmployeePost" class="form-control" asp-items="ViewBag.EmployeePost"></select>
+                <span asp-validation-for="EmployeePost" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EmployeeLogin" class="control-label"></label>
+                <input asp-for="EmployeeLogin" class="form-control" />
+                <span asp-validation-for="EmployeeLogin" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EmployeePassword" class="control-label"></label>
+                <input asp-for="EmployeePassword" class="form-control" />
+                <span asp-validation-for="EmployeePassword" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EmployeeStatus" class="control-label"></label>
+                <select asp-for="EmployeeStatus" class="form-control" asp-items="ViewBag.EmployeeStatus"></select>
+                <span asp-validation-for="EmployeeStatus" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

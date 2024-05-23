@@ -1,0 +1,53 @@
+﻿@model IEnumerable<API_UG.Models.Productpart>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.QuantityProduct)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Agreement)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Order)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductArticleNavigation)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.QuantityProduct)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Agreement.AgreementId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Order.OrderId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductArticleNavigation.ProductArticle)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.ProductPartId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.ProductPartId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.ProductPartId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
